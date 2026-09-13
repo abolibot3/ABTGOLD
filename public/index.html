@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ABTGOLD | قیمت لحظه‌ای رمزارز، طلا، دلار و تبدیل به تومان</title>
+  <meta name="description" content="قیمت لحظه‌ای بیت‌کوین، اتریوم، طلا، دلار و تبدیل دقیق به تومان با نمودار زنده و مبدل هوشمند. به‌روزرسانی هر ۲ دقیقه.">
+  <meta name="keywords" content="قیمت طلا, قیمت دلار, بیت کوین, اتریوم, تتر, تبدیل تومان, قیمت رمزارز">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#f59e0b">
+
+<meta name="description" content="قیمت لحظه‌ای بیت‌کوین، اتریوم، سولانا، طلا و ۵۰ رمزارز برتر دنیا. نمودار زنده، مبدل هوشمند و به‌روزرسانی خودکار هر ۲ دقیقه. کاملاً رایگان.">
+<meta name="keywords" content="قیمت بیت کوین, قیمت اتریوم, قیمت طلا, قیمت رمزارز, نمودار بیت کوین, تبدیل رمزارز, ABTGOLD">
+
+<!-- Open Graph (برای شبکه‌های اجتماعی) -->
+<meta property="og:title" content="ABTGOLD | قیمت لحظه‌ای رمزارز و طلا">
+<meta property="og:description" content="قیمت زنده بیت‌کوین، اتریوم، طلا و ده‌ها رمزارز دیگر با نمودار و مبدل هوشمند">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fa_IR">
+<meta property="og:site_name" content="ABTGOLD">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ABTGOLD | قیمت لحظه‌ای رمزارز و طلا">
+<meta name="twitter:description" content="قیمت زنده بیت‌کوین، اتریوم، طلا و ده‌ها رمزارز دیگر">
+
+<!-- سایر متاهای مهم -->
+<meta name="author" content="ABTGOLD">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#f59e0b">
+<link rel="canonical" href="https://abtgold.ir/"> <!-- بعداً دامنه واقعی را بگذار -->
+
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-inner">
+      <div class="logo">ABT<span>GOLD</span></div>
+      
+      <nav class="nav" id="mainNav">
+        <a href="#prices">قیمت‌ها</a>
+        <a href="#converter">مبدل</a>
+        <a href="#chart">نمودار</a>
+        <a href="#history">تاریخچه</a>
+        <a href="#about">درباره</a>
+      </nav>
+
+      <div class="header-actions">
+        <button id="themeToggle" class="theme-btn" aria-label="تغییر تم">🌙</button>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="منو">☰</button>
+      </div>
+    </div>
+
+    <!-- Live Ticker -->
+    <div class="ticker-wrapper">
+      <div class="ticker" id="ticker"></div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <h1>مرکز قیمت لحظه‌ای رمزارز، طلا و دلار</h1>
+        <p>به‌روزرسانی خودکار هر ۲ دقیقه • مبدل هوشمند • نمودار زنده • نمایش به تومان و دلار</p>
+        <div id="lastUpdate" class="last-update">در حال بارگذاری اطلاعات...</div>
+      </div>
+    </section>
+
+    <section id="prices" class="prices-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>قیمت‌های لحظه‌ای</h2>
+      <p>۲۰ رمزارز برتر + طلا</p>
+    </div>
+
+    <!-- نوار جستجو -->
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="جستجوی رمزارز (مثل bitcoin یا btc)..." autocomplete="off">
+    </div>
+
+    <div class="sort-box">
+  <select id="sortSelect">
+    <option value="marketCap">بیشترین ارزش بازار</option>
+    <option value="price">بیشترین قیمت</option>
+    <option value="changeUp">بیشترین رشد ۲۴ساعته</option>
+    <option value="changeDown">بیشترین افت ۲۴ساعته</option>
+    <option value="name">نام (الفبایی)</option>
+  </select>
+  <!-- Favorites -->
+<section id="favorites" class="prices-section" style="display: none;">
+  <div class="container">
+    <div class="section-header">
+      <h2>علاقه‌مندی‌های من</h2>
+      <p>رمزارزهایی که انتخاب کرده‌اید</p>
+    </div>
+    <div class="cards" id="favoritesCards"></div>
+  </div>
+</section>
+  <div class="view-controls">
+  <button id="compactBtn" class="view-btn" title="حالت فشرده">
+    حالت فشرده
+  </button>
+</div>
+</div>
+
+   <div class="cards" id="priceCards">
+  <!-- اسکلتون‌ها -->
+  <div class="card skeleton"></div>
+  <div class="card skeleton"></div>
+  <div class="card skeleton"></div>
+  <div class="card skeleton"></div>
+  <div class="card skeleton"></div>
+  <div class="card skeleton"></div>
+</div>
+
+<div class="show-more-wrapper">
+  <button id="showMoreBtn" class="show-more-btn" style="display: none;">نمایش بیشتر</button>
+</div>
+</section>
+
+    <!-- Converter -->
+    <section id="converter" class="converter-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>مبدل هوشمند</h2>
+          <p>هر مقدار از رمزارز یا طلا را به تومان یا دلار تبدیل کنید</p>
+        </div>
+        <div class="converter-box">
+          <div class="converter-grid">
+            <div class="input-group">
+              <label>مقدار</label>
+              <input type="number" id="amount" value="1" min="0" step="any" placeholder="مقدار را وارد کنید">
+            </div>
+            <div class="input-group">
+              <label>از دارایی</label>
+              <select id="fromAsset">
+  <option value="bitcoin">بیت‌کوین (BTC)</option>
+  <option value="ethereum">اتریوم (ETH)</option>
+  <option value="tether">تتر (USDT)</option>
+  <option value="solana">سولانا (SOL)</option>
+  <option value="binancecoin">بایننس‌کوین (BNB)</option>
+  <option value="ripple">ریپل (XRP)</option>
+  <option value="gold">طلا (اونس)</option>
+  <option value="gold18">طلای ۱۸ عیار (گرم)</option>
+  <option value="usd">دلار آمریکا</option>
+</select>
+            </div>
+            <div class="input-group">
+              <label>به واحد</label>
+              <select id="toCurrency">
+                <option value="toman">تومان</option>
+                <option value="usd">دلار</option>
+              </select>
+            </div>
+          </div>
+          <button id="convertBtn" class="btn-primary">تبدیل کن</button>
+          <div id="convertResult" class="result">نتیجه اینجا نمایش داده می‌شود</div>
+        </div>
+      </div>
+    </section>
+
+   <!-- Chart -->
+<section id="chart" class="chart-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>نمودار تغییرات قیمت</h2>
+      <p>می‌توانید بین نمای ساعتی و روزانه جابه‌جا شوید</p>
+    </div>
+
+    <!-- دکمه‌های تغییر نوع نمودار -->
+    <div class="chart-controls">
+      <button class="chart-btn active" data-type="short" id="btnShort">نمودار ساعتی</button>
+      <button class="chart-btn" data-type="daily" id="btnDaily">نمودار روزانه</button>
+    </div>
+
+    <div class="chart-box">
+      <canvas id="priceChart" height="140"></canvas>
+    </div>
+  </div>
+</section>
+
+    <!-- History Table -->
+    <section id="history" class="history-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>تاریخچه قیمت‌ها</h2>
+          <p>آخرین به‌روزرسانی‌های ذخیره‌شده در سرور</p>
+        </div>
+        <div class="table-wrapper">
+          <table class="history-table">
+            <thead>
+              <tr>
+                <th>زمان</th>
+                <th>بیت‌کوین</th>
+                <th>اتریوم</th>
+                <th>طلا</th>
+                <th>دلار (تومان)</th>
+              </tr>
+            </thead>
+            <tbody id="historyBody">
+              <!-- Rows injected by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="about-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>درباره ABTGOLD</h2>
+        </div>
+        <div class="about-content">
+          <p>
+            ABTGOLD یک ابزار رایگان و سریع برای مشاهده قیمت لحظه‌ای رمزارزها، طلا و دلار به تومان است.
+            داده‌ها هر ۲ دقیقه یک‌بار از منابع معتبر جهانی دریافت شده و در سرور ذخیره می‌شوند تا هم سرعت بالا باشد و هم فشار کمتری به APIهای خارجی وارد شود.
+          </p>
+          <p>
+            این سایت برای کاربران ایرانی طراحی شده و تمرکز ویژه‌ای روی نمایش قیمت به تومان دارد.
+            مبدل هوشمند، نمودار زنده و تاریخچه قیمت از امکانات اصلی آن هستند.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FAQ Assistant -->
+  <div class="assistant" id="assistant">
+    <button class="assistant-toggle" id="assistantToggle">؟</button>
+    <div class="assistant-panel" id="assistantPanel">
+      <h3>سوالات متداول</h3>
+      <div class="faq-item">
+        <strong>قیمت‌ها از کجا می‌آید؟</strong>
+        <p>رمزارز از CoinGecko، طلا و دلار از منابع عمومی رایگان.</p>
+      </div>
+      <div class="faq-item">
+        <strong>هر چند وقت آپدیت می‌شود؟</strong>
+        <p>هر ۲ دقیقه به صورت خودکار در سرور.</p>
+      </div>
+      <div class="faq-item">
+        <strong>آیا رایگان است؟</strong>
+        <p>بله، کاملاً رایگان و بدون ثبت‌نام.</p>
+      </div>
+      <div class="faq-item">
+        <strong>نرخ تومان چقدر دقیق است؟</strong>
+        <p>تقریبی از بازار آزاد است و ممکن است کمی تفاوت داشته باشد.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container footer-inner">
+      <div class="footer-brand">ABT<span>GOLD</span></div>
+      <p>© ۲۰۲۶ ABTGOLD — ساخته شده برای کاربران ایرانی</p>
+      <p class="footer-note">داده‌ها صرفاً جهت اطلاع‌رسانی است و مسئولیت معاملات با کاربر می‌باشد.</p>
+    </div>
+  </footer>
+
+  <!-- Modal جزئیات -->
+<div class="modal-overlay" id="detailModal">
+  <div class="modal">
+    <button class="modal-close" id="modalClose">×</button>
+    <div class="modal-header">
+      <h3 id="modalTitle">جزئیات</h3>
+    </div>
+    <div class="modal-body" id="modalBody">
+      <!-- محتوا با JS پر می‌شود -->
+    </div>
+    <div class="modal-chart-wrapper">
+  <canvas id="modalChart" height="180"></canvas>
+</div>
+  </div>
+</div>
+
+<!-- Splash Screen -->
+<div id="splash" class="splash">
+  <div class="splash-content">
+    <div class="splash-logo">ABT<span>GOLD</span></div>
+    <div class="splash-bar">
+      <div class="splash-progress"></div>
+    </div>
+  </div>
+</div>
+
+  <script src="app.js"></script>
+</body>
+</html>

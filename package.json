@@ -1,0 +1,17 @@
+{
+  "name": "abtgold",
+  "version": "1.0.0",
+  "description": "ABTGOLD - Live Crypto, Gold & Dollar Prices",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.0",
+    "lowdb": "^7.0.1",
+    "node-fetch": "^2.7.0",
+    "nodemon": "^3.1.14"
+  }
+}
